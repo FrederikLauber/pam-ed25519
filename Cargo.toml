@@ -1,0 +1,24 @@
+[package]
+name = "pam-ed25519"
+version = "0.1.0"
+edition = "2024"
+authors = ["Dr. Frederik Lauber"]
+keywords = ["pam", "linux", "authentication", "challenge-response", "ed25519"]
+license = "GPL-3"
+
+[profile.release]
+strip = true
+lto = true
+
+[lib]
+name = "pam_ed25519"
+crate-type = ["cdylib"]
+
+[dependencies]
+pam-bindings = "0.1.1"
+rand = "0.9.1"
+base85 = "2.0.0"
+ssh-key = { version = "0.7.0-rc.1", features = ["std", "alloc", "ed25519"] }
+home = "0.5.11"
+regex = "1.11.1"
+once_cell = "1.21.3"
